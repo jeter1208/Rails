@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # get "/notes/new", to:"notes#new"
   # get "/notes/:id", to:"notes#id"
   resources :notes
-
+  # , path:articles可以直接這樣改
+#  delete :cancel, on: :member這樣也行
 #  resources :orders,only:[:index,:show] do
 #    meber do
 #      DELETE :cancel
