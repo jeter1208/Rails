@@ -2,6 +2,11 @@
 <%# <a href="/notes/new">新增筆記</a> %>
 <%# <%= link_to "新增筆記", "/notes/new" %>
 <%= link_to "新增筆記", new_note_path %>
+<ul>
+<% @notes.each do |note| %> 
+  <li><%= note.title %></li>
+  <% end %>
+</ul>  
 <%# 最推薦第四行 %>
 <%# <%= link_to "新增筆記", new_note_url %>  
 <%# view helper %>
