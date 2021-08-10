@@ -1,13 +1,24 @@
 <h1>新增筆記</h1>
-<%= form_for(@note) do %>
+<%# <%= form_for(@note) do %> 
 <%# <form action="/notes" method="post">
   <input type="hidden" name="authenticity_token"> %>
   <%# 令牌 %>
-   標題:<input type="text" name="title">
-   內文:<textarea type="text" name="content"></textarea>
+   <%# 標題:<input type="text" name="note[title]">
+   <%= f.text_field :title %> 
+   <%# 內文:<textarea type="text" name="note[content]"></textarea>
+    <%= f.text_area :content %> 
   <%# <input type="text" name="r"> %>
-  <input type="submit" value="送出">
-<% end %>  
+  <%# <input type="submit" value="送出">
+   <%= f.submit "送出" %>
+<%# <% end %> 
+<%= form_for(@note) do |f| %>
+  <%= f.label :title, "標題" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content, "內文" %>
+  <%= f.text_area :content %>
+  <%= f.submit "送出" %>
+<% end %>
 <%# http://google.com/?p=444&q=123&r=666 Google只吃q這個參數
 //QueryString
 java %>
