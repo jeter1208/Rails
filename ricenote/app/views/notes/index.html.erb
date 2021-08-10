@@ -4,10 +4,13 @@
 <%= link_to "新增筆記", new_note_path %>
 <ul>
 <% @notes.each do |note| %> 
-  <li><%= note.title %></li>
+  <li>
+     <%= link_to note.title,note_path(note) %>
+  </li>
   <% end %>
 </ul>  
 <%# 最推薦第四行 %>
 <%# <%= link_to "新增筆記", new_note_url %>  
 <%# view helper %>
 <%# 麵條式程式碼  第四行%>
+<%# 有輸出在+等號 %>
