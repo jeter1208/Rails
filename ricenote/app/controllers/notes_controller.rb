@@ -8,19 +8,20 @@ class NotesController < ApplicationController
     end
     def new
         @note = Note.new
+        # @note = Note.new(title: "123", content:"4565555")
     end
     def show
       @note = Note.find(params[:id])  
     end
     def create
-    #   reder html: params[:note]
+    #   render html: params[:note]
     #   note = Note.new(params[:note]) 
     #   title = params[:title]
     #   content = params[:content]
     #   note = Note.new(title: title,content: content) 
     #   render html:params[:title]
         # strong Prameter 強參數 新增白名單
-       clean_note =params.require(:note).permit(:title,:content)
+       clean_note = params.require(:note).permit(:title,:content)
        @note = Note.new(clean_note)
       if @note.save
         redirect_to "/notes"
