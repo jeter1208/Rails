@@ -3,6 +3,7 @@
 <%# <%= link_to "新增筆記", "/notes/new" %>
 <%= link_to "新增筆記", new_note_path %>
 <ul>
+<%# <%= render @notes%>
 <% @notes.each do |note| %> 
   <li>
      <%= link_to note.title,note_path(note) %>
