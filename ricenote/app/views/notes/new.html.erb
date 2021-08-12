@@ -11,14 +11,8 @@
   <%# <input type="submit" value="送出">
    <%= f.submit "送出" %>
 <%# <% end %> 
-<%= form_for(@note) do |c| %>
-  <%= c.label :title, "標題" %>
-  <%= c.text_field :title %>
+<%= render "form", note: @note %>
 
-  <%= c.label :content, "內文" %>
-  <%= c.text_area :content %>
-  <%= c.submit "送出" %>
-<% end %>
 <%# http://google.com/?p=444&q=123&r=666 Google只吃q這個參數
 //QueryString
 java %>

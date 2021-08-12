@@ -1,9 +1,4 @@
 <h1>編輯 <%= @note.title %></h1>
-<%= form_for(@note) do |c| %>
-  <%= c.label :title, "標題" %>
-  <%= c.text_field :title %>
+<%= render "form", note: @note %>
 
-  <%= c.label :content, "內文" %>
-  <%= c.text_area :content %>
-  <%= c.submit "送出" %>
-<% end %>
+ 

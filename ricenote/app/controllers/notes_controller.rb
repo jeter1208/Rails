@@ -64,6 +64,12 @@ class NotesController < ApplicationController
       params.require(:note).permit(:title,:content)
     end 
     def find_note
-       @note = Note.find(params[:id])
+      # begin
+        @note = Note.find(params[:id])
+      # rescue ActiveRecord::RecordNotFound
+      #   render file:"public/404.html",status:404 
+      #                                       # not_found或404都可以
+      # end
+       
     end
 end
