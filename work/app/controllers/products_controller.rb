@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
       end
  end
  def show
-    @products = Product.find(params[:id])
+    @product = Product.find(params[:id])
  end
 end
+# Hero.where("age >= 10 and age <= 25")
