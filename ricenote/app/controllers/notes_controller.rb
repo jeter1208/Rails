@@ -70,6 +70,6 @@ class NotesController < ApplicationController
       #   render file:"public/404.html",status:404 
       #                                       # not_found或404都可以
       # end
-       
+       555
     end
 end
