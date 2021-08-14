@@ -1,0 +1,7 @@
+{
+    "formatOnSave": true,
+    "singleQuote": false,
+    "semi": false,
+    "printWidth": 120,
+    "tabWidth": 4
+  }

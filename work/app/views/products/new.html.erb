@@ -1,16 +1,3 @@
 <h1>新增商品</h1>
+<%= render "form",product: @product %>
 
-<%= form_for(@product) do |c| %>
-  <%= c.label :title, "商品名稱" %>
-  <%= c.text_field :title %>
-
-  <%= c.label :price, "價格" %>
-  <%= c.text_field :price %>
-
-  <%= c.label :describe, "商品描述" %>
-  <%= c.text_area :describe %>
-
-  <%= c.label :is_active, "是否上架" %>
-  <%= c.check_box :is_active %>
-  <%= c.submit "送出"%>
-<% end %>
