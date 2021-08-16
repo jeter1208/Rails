@@ -5,7 +5,7 @@ class NotesController < ApplicationController
     # @notes = Note.all.sort.reverse X
     #   @notes = Note.all
       @notes = Note.order(id: :desc)
-    #   這樣也行
+    #   這樣也行 available
       # @notes = Note.all.order(id: :desc)
     end
     def new
@@ -51,9 +51,9 @@ class NotesController < ApplicationController
     end  
     def destroy
         #  刪除
-      @note = Note.find(params[:id])
+      # @note = Note.find(params[:id])
       # 找到他
-      @note.destroy
+      @note.update(:datetime)
       # 刪除他
       redirect_to "/notes"
       # 離開他

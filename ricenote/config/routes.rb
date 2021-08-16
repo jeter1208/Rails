@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # get "/notes", to:"notes#index"
   # get "/notes/new", to:"notes#new"
   # get "/notes/:id", to:"notes#id"
+  get "/", to:"notes#index"
   resources :notes
   # , path:articles可以直接這樣改
 #  delete :cancel, on: :member這樣也行
@@ -21,10 +22,14 @@ Rails.application.routes.draw do
                 #  只開這些不要給別人機會
 
 
-
-
+resources :users, only: [:create] do
+#  Get 
+  collection do
+    get :sign_up
+  end
+end
   get "/hello", to: "pages#main"
   get "/about", to: "pages#about"
 
-  get "/users", to: "users#profile"
+  # get "/users", to: "users#profile"
 end

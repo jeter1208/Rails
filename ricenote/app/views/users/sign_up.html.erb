@@ -1,0 +1,17 @@
+<h1>註冊會員</h1>
+<div class="filed">
+<%= form_for(@user, url: "/users") do |c| %>
+  <%= c.label :email, "信箱" %>
+  <%= c.email_field :email %>
+
+  <%= c.label :password, "密碼" %>
+  <%= c.password_field :password %>
+
+  <%= c.label :password_confirmation, "密碼確認" %>
+  <%= c.password_field :password_confirmation %>
+
+   <%= c.label :account, "" %>
+  <%= c.text_field :account %>
+
+  <%= c.submit "送出" %>
+<% end %>
