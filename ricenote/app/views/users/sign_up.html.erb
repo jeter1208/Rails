@@ -1,17 +1,33 @@
 <h1>註冊會員</h1>
-<div class="filed">
-<%= form_for(@user, url: "/users") do |c| %>
-  <%= c.label :email, "信箱" %>
-  <%= c.email_field :email %>
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-  <%= c.label :password, "密碼" %>
-  <%= c.password_field :password %>
+<%= form_for(@user, url: "/users") do |f| %>
 
-  <%= c.label :password_confirmation, "密碼確認" %>
-  <%= c.password_field :password_confirmation %>
+<div class="field">
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
 
-   <%= c.label :account, "" %>
-  <%= c.text_field :account %>
+<div class="field">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
 
-  <%= c.submit "送出" %>
+<div class="field">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</div>
+
+<div class="field">
+  <%= f.label :account %>
+  <%= f.text_field :account %>
+</div>
+
+<%= f.submit %>
 <% end %>

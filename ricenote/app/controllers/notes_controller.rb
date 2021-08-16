@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
     before_action :find_note, only:[:show,:edit, :update, :destroy]
-
+    before_action :check_login!, except: [:index, :show]
     def index
     # @notes = Note.all.sort.reverse X
     #   @notes = Note.all
@@ -53,7 +53,7 @@ class NotesController < ApplicationController
         #  刪除
       # @note = Note.find(params[:id])
       # 找到他
-      @note.update(:datetime)
+      @note.update(daleted_at: Time.now)
       # 刪除他
       redirect_to "/notes"
       # 離開他
