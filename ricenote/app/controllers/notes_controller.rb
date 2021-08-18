@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
-    before_action :find_note, only:[:show,:edit, :update, :destroy]
+    before_action :find_user_note, only:[:edit, :update, :destroy]
+    # :show
     before_action :check_login!, except: [:index, :show]
     def index
     # @notes = Note.all.sort.reverse X
@@ -9,11 +10,11 @@ class NotesController < ApplicationController
       # @notes = Note.all.order(id: :desc)
     end
     def new
-        @note = Note.new
+      @note = current_user.notes.new
         # @note = Note.new(title: "123", content:"4565555")
     end
     def show
-      # @note = Note.find(params[:id])  
+      @note = Note.find(params[:id])  
     end
     def edit
       # 編輯
@@ -39,7 +40,12 @@ class NotesController < ApplicationController
     #   render html:params[:title]
         # strong Prameter 強參數 新增白名單
       #  clean_note = params.require(:note).permit(:title,:content)
-       @note = Note.new(note_params)
+
+      #  @note = Note.new(note_params)
+      #  @note.user_id = current_user.id
+
+      @note = current_user.notes.new(note_params)
+
       if @note.save
         redirect_to "/notes"
       else
@@ -63,13 +69,13 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(:title,:content)
     end 
-    def find_note
+    def find_user_note
       # begin
-        @note = Note.find(params[:id])
+        # @note = Note.find(params[:id])
       # rescue ActiveRecord::RecordNotFound
       #   render file:"public/404.html",status:404 
       #                                       # not_found或404都可以
       # end
-       555
+      @note = current_user.notes.find(params[:id])
     end
 end

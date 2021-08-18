@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only:[:show,:update,:edit,:destory]
+  before_action :find_product, only:[:show,:update,:edit,:destroy]
 
   def index
     @products = Product.order(id: :desc)   
@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:title,:price,:describe,:is_active)
   end
+
   def find_product
     @product = Product.find(params[:id])
   end
